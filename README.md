@@ -142,3 +142,6 @@ Example:
 </html>
 ```
 See more in [TWIG TEMPLATE ENGINE](https://twig.symfony.com/)
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)

@@ -1,116 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-	<title>{{ title }}</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="table/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="table/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="table/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="table/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="table/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="table/vendor/perfect-scrollbar/perfect-scrollbar.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="table/css/util.css">
-	<link rel="stylesheet" type="text/css" href="table/css/main.css">
-<!--===============================================================================================-->
+    <title>{{ title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="table/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="table/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="table/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="table/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="table/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="table/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="table/css/util.css">
+    <link rel="stylesheet" type="text/css" href="table/css/main.css">
+    <!--===============================================================================================-->
 </head>
+
 <body>
-	
-	<div class="limiter">
-		<div class="container-table100">
-			<div class="wrap-table100">
-				<div class="table100 ver1">
-					<div class="table100-firstcol">
-						<table>
-							<thead>
-								<tr class="row100 head">
-									<th class="cell100" style="padding: 0 20px;">#</th>
-									<th class="cell100 column1">Descrição</th>
-								</tr>
-							</thead>
-							<tbody>
-								{% for product in products %}
-								<tr class="row100 body">
-									<td class="cell100" style="padding: 0 20px;">{{ product.id }}</td>
-									<td class="cell100 column1">{{ product.title }}</td>
-								</tr>
-								{% endfor %}
-							</tbody>
-						</table>
-					</div>
-					
-					<div class="wrap-table100-nextcols js-pscroll">
-						<div class="table100-nextcols">
-							<table>
-								<thead>
-									<tr class="row100 head">
-										<th class="cell100 column2">Quantidade</th>
-										<th class="cell100 column3">R$ Custo</th>
-										<th class="cell100 column4">R$ Prazo</th>
-										<th class="cell100 column5">R$ Vista</th>
-										<th class="cell100 column6">Criado em</th>
-									</tr>
-								</thead>
-								<tbody>
-									{% for product in products %}
-									<tr class="row100 body">
-										<td class="cell100 column2">{{ product.qty }}</td>
-										<td class="cell100 column3">{{ product.purchase_price|number_format(2, ',', '.') }}</td>
-										<td class="cell100 column4">{{ product.forward_price|number_format(2, ',', '.') }}</td>
-										<td class="cell100 column5">{{ product.cash_price|number_format(2, ',', '.') }}</td>
-										<td class="cell100 column6">{{ product.created_at|date("d/m/Y") }}</td>
-									</tr>
-									{% endfor %}
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100 ver1">
+                    <div class="table100-firstcol">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th class="cell100" style="padding: 0 20px;">#</th>
+                                    <th class="cell100 column1">Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for product in products %}
+                                <tr class="row100 body">
+                                    <td class="cell100" style="padding: 0 20px;">{{ product.id }}</td>
+                                    <td class="cell100 column1">{{ product.title }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="wrap-table100-nextcols js-pscroll">
+                        <div class="table100-nextcols">
+                            <table>
+                                <thead>
+                                    <tr class="row100 head">
+                                        <th class="cell100 column2">Quantidade</th>
+                                        <th class="cell100 column3">R$ Custo</th>
+                                        <th class="cell100 column4">R$ Prazo</th>
+                                        <th class="cell100 column5">R$ Vista</th>
+                                        <th class="cell100 column6">Criado em</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for product in products %}
+                                    <tr class="row100 body">
+                                        <td class="cell100 column2">{{ product.qty }}</td>
+                                        <td class="cell100 column3">{{ product.purchase_price|number_format(2, ',', '.') }}</td>
+                                        <td class="cell100 column4">{{ product.forward_price|number_format(2, ',', '.') }}</td>
+                                        <td class="cell100 column5">{{ product.cash_price|number_format(2, ',', '.') }}</td>
+                                        <td class="cell100 column6">{{ product.created_at|date("d/m/Y") }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-<!--===============================================================================================-->	
-	<script src="table/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="table/vendor/bootstrap/js/popper.js"></script>
-	<script src="table/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="table/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="table/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	<script>
-		$('.js-pscroll').each(function(){
-			var ps = new PerfectScrollbar(this);
+    <!--===============================================================================================-->
+    <script src="table/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="table/vendor/bootstrap/js/popper.js"></script>
+    <script src="table/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="table/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="table/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $('.js-pscroll').each(function() {
+            var ps = new PerfectScrollbar(this);
 
-			$(window).on('resize', function(){
-				ps.update();
-			})
+            $(window).on('resize', function() {
+                ps.update();
+            })
 
-			$(this).on('ps-x-reach-start', function(){
-				$(this).parent().find('.table100-firstcol').removeClass('shadow-table100-firstcol');
-			});
+            $(this).on('ps-x-reach-start', function() {
+                $(this).parent().find('.table100-firstcol').removeClass('shadow-table100-firstcol');
+            });
 
-			$(this).on('ps-scroll-x', function(){
-				$(this).parent().find('.table100-firstcol').addClass('shadow-table100-firstcol');
-			});
+            $(this).on('ps-scroll-x', function() {
+                $(this).parent().find('.table100-firstcol').addClass('shadow-table100-firstcol');
+            });
 
-		});
-
-		
-		
-		
-	</script>
-<!--===============================================================================================-->
-	<script src="table/js/main.js"></script>
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="table/js/main.js"></script>
 
 </body>
+
 </html>

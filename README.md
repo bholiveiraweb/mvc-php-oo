@@ -122,7 +122,7 @@ class Product
     }
 }
 ```
-
+### Views
 Views should be insert in App\Views path like .html file or .twig file to use twig resources and sintaxe.
 Example:
 ```html
@@ -141,4 +141,4 @@ Example:
 
 </html>
 ```
-See [TWIG TEMPLATE ENGINE](https://twig.symfony.com/)
+See more in [TWIG TEMPLATE ENGINE](https://twig.symfony.com/)

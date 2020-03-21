@@ -1,0 +1,23 @@
+{
+    "name": "bholiveira/mvc",
+    "description": "Simple MVC PHP OO",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bruno Oliveira",
+            "email": "bholiveira.web@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0",
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        },
+        "files": [
+            "App/Constants.php"
+        ]
+    }
+}

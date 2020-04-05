@@ -7,11 +7,12 @@ use App\Core\Database;
 class Product
 {
     private $db;
-    private $table = 'products';
+    private $table;
 
     public function __construct()
     {
         $this->db = Database::connect();
+        $this->table = 'products';
     }
 
     public function getProducts()

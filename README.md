@@ -53,7 +53,7 @@ Router::get('/product/{id}', function() {
  *  Admin Routes
  *  ---------------------------------------------
  */
-Router::namespace('App\\Resources\\Admin');
+Router::namespace('App\\Resources\\Admin\\');
 Router::get('/admin/dashboard', 'Dashboard::index');
 Router::post('/admin/dashboard', 'Dashboard::index');
 

@@ -4,7 +4,7 @@ namespace App\Core;
 
 class Router
 {
-   public static $base_url;
+   private static $base_url;
 
    public function __construct()
    {

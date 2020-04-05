@@ -20,7 +20,7 @@ class Welcome
     {
         $data = [
             'title' => 'Listagem de produtos',
-            'products' => Product::getProducts()
+            'products' => (new Product)->getProducts()
         ];
 
         View::render('index.html', $data);

@@ -4,9 +4,9 @@ namespace App\Core;
 
 class Dispatcher
 {
-    public static $routes = [];
-    public static $namespace = null;
-    public static $error;
+    private static $routes = [];
+    private static $namespace = null;
+    private static $error;
 
     public static function setNamespace($namespace)
     {

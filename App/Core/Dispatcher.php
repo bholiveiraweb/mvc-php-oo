@@ -48,8 +48,8 @@ class Dispatcher
                         $controller = ucfirst(current($strcall)) ?? ucfirst(current($strcall));
                         $method     = implode(array_slice($strcall, 1, 1));
 
-                        if (class_exists(self::getNamespace() . $controller) && method_exists(self::getNamespace() . $controller, $method)) {
-                            call_user_func_array([self::getNamespace() . $controller, $method], $params);
+                        if (class_exists(self::getNamespace() . '\\' . $controller) && method_exists(self::getNamespace() . $controller, $method)) {
+                            call_user_func_array([self::getNamespace() . '\\' . $controller, $method], $params);
                             self::$error['404'] = false;
                             exit;
                         }

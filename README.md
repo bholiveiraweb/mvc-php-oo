@@ -40,7 +40,7 @@ Router::base(BASE_URL);
  *  Public Routes
  *  ---------------------------------------------
  */
-Router::namespace('App\Resources\');
+Router::namespace('App\Resources');
 Router::get('/', 'Welcome::index');
 Router::get('/dashboard', 'Welcome::dashboard');
 Router::post('/dashboard', 'Welcome::dashboard');

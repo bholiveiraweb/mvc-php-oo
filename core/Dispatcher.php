@@ -1,38 +1,38 @@
 <?php
 
-namespace App\Core;
+namespace Core;
 
 class Dispatcher
 {
-    private static $routes = [];
-    private static $namespace = null;
-    private static $error;
+    private $routes = [];
+    private $namespace = null;
+    private $error;
 
-    public static function setNamespace($namespace)
+    public function setNamespace($namespace)
     {
-        self::$namespace = $namespace;
+        $this->namespace = $namespace;
     }
 
-    public static function getNamespace()
+    public function getNamespace()
     {
-        return self::$namespace;
+        return $this->namespace !== null ? $this->namespace : 'App\Controllers';
     }
 
     public function getError()
     {
-        return self::$error;
+        return $this->error;
     }
 
-    public static function dispatch($route, $callback)
+    public function dispatch($route, $callback)
     {
-        self::$routes[] = $route;
-        self::$error['404'] = true;
+        $this->routes[] = $route;
+        $this->error['404'] = true;
 
         $_uri = strtok($_SERVER['REQUEST_URI'], '?');
         $params = [];
 
 
-        foreach (self::$routes as $key => $value) {
+        foreach ($this->routes as $key => $value) {
             $pattern = preg_replace('(\{[a-z0-9]{1,}\})', '([a-z0-9-]{1,})', $route);
 
             if (preg_match("#^({$pattern})*$#i", $_uri, $match) === 1) {
@@ -44,13 +44,13 @@ class Dispatcher
                         $callback->__invoke($params);
                         exit;
                     } else {
-                        $strcall    = explode('::', $callback);
+                        $strcall    = explode('@', $callback);
                         $controller = ucfirst(current($strcall)) ?? ucfirst(current($strcall));
                         $method     = implode(array_slice($strcall, 1, 1));
 
-                        if (class_exists(self::getNamespace() . '\\' . $controller) && method_exists(self::getNamespace() . '\\' .$controller, $method)) {
-                            call_user_func_array([self::getNamespace() . '\\' . $controller, $method], $params);
-                            self::$error['404'] = false;
+                        if (class_exists($this->getNamespace() . '\\' . $controller) && method_exists($this->getNamespace() . '\\' . $controller, $method)) {
+                            call_user_func_array([$this->getNamespace() . '\\' . $controller, $method], $params);
+                            $this->error['404'] = false;
                             exit;
                         }
                     }

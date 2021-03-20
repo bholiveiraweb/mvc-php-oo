@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Resources\Errors;
+namespace App\Controllers\Errors;
 
-use App\Core\View;
+use Core\View;
 
-class Error404
+class Error404Controller
 {
     public function index()
     {
         header("HTTP/1.0 404 Not Found");
-        
+
         $data = [
             'title' => 'Page not found'
         ];

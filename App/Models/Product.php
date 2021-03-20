@@ -2,22 +2,20 @@
 
 namespace App\Models;
 
-use App\Core\Database;
+use Core\Database;
 
 class Product
 {
     private $db;
-    private $table;
 
     public function __construct()
     {
         $this->db = Database::connect();
-        $this->table = 'products';
     }
 
-    public function getProducts()
+    public function all()
     {
-        $stmt = $this->db->query("SELECT * FROM {$this->table}");
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $stmt = $this->db->query("SELECT * FROM products");
+        return $stmt->fetchAll();
     }
 }

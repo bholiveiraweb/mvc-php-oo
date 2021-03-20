@@ -1,30 +1,20 @@
 <?php
 
-use App\Core\Router;
+use Core\Router;
 
-Router::base(BASE_URL);
+$router = new Router;
 
-/**
- *  ---------------------------------------------
- *  Public Routes
- *  ---------------------------------------------
- */
-Router::namespace('App\Resources');
+//-- Public Routes
+$router->namespace('App\Controllers');
 
-Router::get('/', 'Welcome::index');
-Router::get('/dashboard', 'Welcome::dashboard');
-Router::post('/dashboard', 'Welcome::dashboard');
+$router->get('/', 'WelcomeController@index');
+$router->get('/dashboard', 'WelcomeController@dashboard');
+$router->get('/product', 'ProductController@index');
 
-Router::get('/product', 'Product::index');
+//-- 404 Error Handler
+$router->namespace('App\Controllers\Errors');
+$router->get('/error/404', 'Error404Controller@index');
 
-/**
- *  ---------------------------------------------
- *  404 Error Handler
- * ----------------------------------------------
- */
-Router::namespace('App\Resources\Errors');
-Router::get('/error/404', 'Error404::index');
-
-if (Router::error()['404']) {
-    Router::redirect('/error/404');
+if ($router->error()['404']) {
+    $router->redirect('/error/404');
 }
